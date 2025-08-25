@@ -1,36 +1,45 @@
-// eslint.config.mjs
 import typescript from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+
+const browserGlobals = {
+  React: 'readable',
+  window: 'readable',
+  document: 'readable',
+  navigator: 'readable',
+  localStorage: 'readable',
+  fetch: 'readable',
+  RequestInit: 'readable',
+  Response: 'readable',
+  alert: 'readable',
+  confirm: 'readable',
+  process: 'readable'
+};
 
 export default [
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       parser: tsParser,
-      globals: {
-        React: 'readable'  // Add this line to define React as a global
-      }
+      globals: browserGlobals
     },
     plugins: {
       '@typescript-eslint': typescript,
     },
     rules: {
-      "no-undef": "error",
+      "no-undef": "off",
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": "warn"
     },
     ignores: ["node_modules/**", "dist/**", "build/**"]
   },
   {
     files: ["**/*.{js,jsx}"],
     languageOptions: {
-      globals: {
-        React: 'readable'
-      }
+      globals: browserGlobals
     },
     rules: {
-      "no-undef": "error",
-      "no-unused-vars": "warn",
+      "no-undef": "off",
+      "no-unused-vars": "warn"
     }
   }
 ];

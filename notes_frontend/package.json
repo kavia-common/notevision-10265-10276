@@ -8,6 +8,7 @@
   "dependencies": {
     "@remotion/cli": "4.0.286",
     "@remotion/zod-types": "4.0.286",
+    "@remotion/player": "4.0.286",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "remotion": "4.0.286",
@@ -27,6 +28,6 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc -p tsconfig.json --noEmit"
   }
 }

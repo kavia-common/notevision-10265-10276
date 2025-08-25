@@ -1,54 +1,25 @@
-# Remotion video
+# NoteVision Frontend (Remotion)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+This Remotion-based frontend provides:
+- Authentication
+- Notes CRUD with rich-text editing
+- Local Remotion preview and backend-powered video generation with share links
+- Responsive layout with sidebar, editor, and preview panel
+- Light modern theme using the specified colors
 
-Welcome to your Remotion project!
+## Quick Start
 
-## Commands
+1. Install dependencies:
+   npm i
 
-**Install Dependencies**
+2. Configure API base (see .env.example) or set up a dev proxy mapping /api to the notes_database backend.
 
-```console
-npm i
-```
+3. Start Remotion Studio:
+   npm run dev
 
-**Start Preview**
+Open the provided preview URL. The app UI is visible directly within the Remotion Studio page.
 
-```console
-npm run dev
-```
+## Render a video via CLI
 
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Example:
+npx remotion render src/index.ts NoteVideo out/note.mp4 --props='{"title":"Hello","html":"<p>World</p>"}'
